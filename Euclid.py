@@ -1,9 +1,15 @@
-def gcd(a, b): #создаем функцию
-    if(b == 0):  #если b равно нулю возвращаем a
-        return a  
-    else: 
-        return gcd(b, a % b) 
-a =int(input("Введите первое число: ")) #вводим первое число
-b =int(input("Введите второе число: ")) #вводим второе число 
-num = gcd(a, b) #вызываем функциюю 
-print("НОД",a,'и',b,"равен:",num) 
+inp = input('Введите два числа через пробел ')
+inp_is = inp.split()
+inp_1 = int(inp_is[0])
+inp_2 = int(inp_is[1])
+
+def gcd(a:int, b:int) -> int:
+    if a == 0 or b == 0: 
+         return max(a, b)
+    else:
+        if a > b:
+            return gcd(a - b, b)
+        else:
+            return gcd(a, b - a)
+        
+print(f'Нод чисел {inp_1} и {inp_2}: {gcd(inp_1, inp_2)}')
