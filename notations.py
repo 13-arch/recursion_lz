@@ -1,10 +1,6 @@
-num = int(input('Введите десятичное число: '))
-sys = int(input('Введите систему счисления: '))
-
-
-def notation(N: int, T: int) -> str:
-    if N == 0:
-        return '0'
+def notation(N, T):
+    if T > 16:
+        return 'Основание системы счисления должно быть не больше 16-ти'
 
     number = ''
     while N > 0:
@@ -15,5 +11,6 @@ def notation(N: int, T: int) -> str:
     return number
 
 
-
-print(f'Число {num} в системе счисления с основанием {sys}: {notation(num, sys)}')
+num = int(input('Десятичное число: '))
+base = int(input('Основание (2-16): '))
+print(notation(num, base))
